@@ -118,11 +118,11 @@ namespace unicorn_net_tests.request
         [Test]
         public static void HttpRequest_Should_Add_Headers()
         {
-            var Get = new HttpRequest(HttpMethod.Get, "http://localhost");
-            var Post = new HttpRequest(HttpMethod.Post, "http://localhost");
-            var Delete = new HttpRequest(HttpMethod.Delete, "http://localhost");
-            var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
-            var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
+            var Get = new HttpRequestMessage(HttpMethod.Get, "http://localhost");
+            var Post = new HttpRequestMessage(HttpMethod.Post, "http://localhost");
+            var Delete = new HttpRequestMessage(HttpMethod.Delete, "http://localhost");
+            var Patch = new HttpRequestMessage(new HttpMethod("PATCH"), "http://localhost");
+            var Put = new HttpRequestMessage(HttpMethod.Put, "http://localhost");
 
             Get.header("User-Agent", "unirest-net/1.0");
             Post.header("User-Agent", "unirest-net/1.0");
@@ -130,21 +130,21 @@ namespace unicorn_net_tests.request
             Patch.header("User-Agent", "unirest-net/1.0");
             Put.header("User-Agent", "unirest-net/1.0");
 
-            Get.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Post.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Delete.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Patch.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Put.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
+            Get.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Post.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Delete.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Patch.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Put.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
         }
 
         [Test]
         public static void HttpRequest_Should_Add_Headers_Dictionary()
         {
-            var Get = new HttpRequest(HttpMethod.Get, "http://localhost");
-            var Post = new HttpRequest(HttpMethod.Post, "http://localhost");
-            var Delete = new HttpRequest(HttpMethod.Delete, "http://localhost");
-            var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
-            var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
+            var Get = new HttpRequestMessage(HttpMethod.Get, "http://localhost");
+            var Post = new HttpRequestMessage(HttpMethod.Post, "http://localhost");
+            var Delete = new HttpRequestMessage(HttpMethod.Delete, "http://localhost");
+            var Patch = new HttpRequestMessage(new HttpMethod("PATCH"), "http://localhost");
+            var Put = new HttpRequestMessage(HttpMethod.Put, "http://localhost");
 
             Get.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
             Post.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
@@ -152,11 +152,11 @@ namespace unicorn_net_tests.request
             Patch.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
             Put.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
 
-            Get.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Post.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Delete.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Patch.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Put.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
+            Get.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Post.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Delete.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Patch.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Put.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
         }
 
         [Test]
@@ -348,39 +348,39 @@ namespace unicorn_net_tests.request
         [Test]
         public static void HttpRequest_With_Body_Should_Add_Headers()
         {
-            var Post = new HttpRequest(HttpMethod.Post, "http://localhost");
-            var Delete = new HttpRequest(HttpMethod.Delete, "http://localhost");
-            var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
-            var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
+            var Post = new HttpRequestMessage(HttpMethod.Post, "http://localhost");
+            var Delete = new HttpRequestMessage(HttpMethod.Delete, "http://localhost");
+            var Patch = new HttpRequestMessage(new HttpMethod("PATCH"), "http://localhost");
+            var Put = new HttpRequestMessage(HttpMethod.Put, "http://localhost");
 
             Post.header("User-Agent", "unirest-net/1.0");
             Delete.header("User-Agent", "unirest-net/1.0");
             Patch.header("User-Agent", "unirest-net/1.0");
             Put.header("User-Agent", "unirest-net/1.0");
 
-            Post.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Delete.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Patch.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Put.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
+            Post.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Delete.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Patch.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Put.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
         }
 
         [Test]
         public static void HttpRequest_With_Body_Should_Add_Headers_Dictionary()
         {
-            var Post = new HttpRequest(HttpMethod.Post, "http://localhost");
-            var Delete = new HttpRequest(HttpMethod.Delete, "http://localhost");
-            var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
-            var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
+            var Post = new HttpRequestMessage(HttpMethod.Post, "http://localhost");
+            var Delete = new HttpRequestMessage(HttpMethod.Delete, "http://localhost");
+            var Patch = new HttpRequestMessage(new HttpMethod("PATCH"), "http://localhost");
+            var Put = new HttpRequestMessage(HttpMethod.Put, "http://localhost");
 
             Post.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
             Delete.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
             Patch.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
             Put.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
 
-            Post.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Delete.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Patch.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
-            Put.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
+            Post.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Delete.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Patch.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
+            Put.Headers.GetValues("User-Agent").Should().Contain("unirest-net/1.0");
         }
 
         [Test]

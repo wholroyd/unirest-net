@@ -52,25 +52,6 @@ namespace unirest_net.request
 
         }
 
-        public HttpRequest header(string name, string value)
-        {
-            Headers.Add(name, value);
-            return this;
-        }
-
-        public HttpRequest headers(Dictionary<string, string> headers)
-        {
-            if (headers != null)
-            {
-                foreach (var header in headers)
-                {
-                    Headers.Add(header.Key, header.Value);
-                }
-            }
-
-            return this;
-        }
-
         public HttpRequest field(string name, string value)
         {
             if (HttpMethod == HttpMethod.Get)
