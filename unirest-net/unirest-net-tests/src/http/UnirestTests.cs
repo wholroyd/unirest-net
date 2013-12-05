@@ -22,20 +22,20 @@ namespace unirest_net.http
         public static void Unicorn_Should_Return_Correct_Verb()
         {
             Unirest.get("http://localhost").Method.Should().Be(HttpMethod.Get);
-            Unirest.post("http://localhost").HttpMethod.Should().Be(HttpMethod.Post);
-            Unirest.delete("http://localhost").HttpMethod.Should().Be(HttpMethod.Delete);
-            Unirest.patch("http://localhost").HttpMethod.Should().Be(new HttpMethod("PATCH"));
-            Unirest.put("http://localhost").HttpMethod.Should().Be(HttpMethod.Put);
+            Unirest.post("http://localhost").Method.Should().Be(HttpMethod.Post);
+            Unirest.delete("http://localhost").Method.Should().Be(HttpMethod.Delete);
+            Unirest.patch("http://localhost").Method.Should().Be(new HttpMethod("PATCH"));
+            Unirest.put("http://localhost").Method.Should().Be(HttpMethod.Put);
         }
 
         [Test]
         public static void Unicorn_Should_Return_Correct_URL()
         {
             Unirest.get("http://localhost").RequestUri.OriginalString.Should().Be("http://localhost");
-            Unirest.post("http://localhost").URL.OriginalString.Should().Be("http://localhost");
-            Unirest.delete("http://localhost").URL.OriginalString.Should().Be("http://localhost");
-            Unirest.patch("http://localhost").URL.OriginalString.Should().Be("http://localhost");
-            Unirest.put("http://localhost").URL.OriginalString.Should().Be("http://localhost");
+            Unirest.post("http://localhost").RequestUri.OriginalString.Should().Be("http://localhost");
+            Unirest.delete("http://localhost").RequestUri.OriginalString.Should().Be("http://localhost");
+            Unirest.patch("http://localhost").RequestUri.OriginalString.Should().Be("http://localhost");
+            Unirest.put("http://localhost").RequestUri.OriginalString.Should().Be("http://localhost");
         }
     }
 }

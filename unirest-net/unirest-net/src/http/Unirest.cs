@@ -12,24 +12,24 @@ namespace unirest_net.http
             return new HttpRequestMessage(HttpMethod.Get, url);
         }
 
-        public static HttpRequest post(string url)
+        public static HttpRequestMessage post(string url)
         {
-            return new HttpRequest(HttpMethod.Post, url);
+            return new HttpRequestMessage(HttpMethod.Post, url);
         }
 
-        public static HttpRequest delete(string url)
+        public static HttpRequestMessage delete(string url)
         {
-            return new HttpRequest(HttpMethod.Delete, url);
+            return new HttpRequestMessage(HttpMethod.Delete, url);
         }
 
-        public static HttpRequest patch(string url)
+        public static HttpRequestMessage patch(string url)
         {
-            return new HttpRequest(new HttpMethod("PATCH"), url);
+            return new HttpRequestMessage(new HttpMethod("PATCH"), url);
         }
 
-        public static HttpRequest put(string url)
+        public static HttpRequestMessage put(string url)
         {
-            return new HttpRequest(HttpMethod.Put, url);
+            return new HttpRequestMessage(HttpMethod.Put, url);
         }
     }
 }
