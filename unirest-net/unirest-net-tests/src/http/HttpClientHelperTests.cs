@@ -34,14 +34,14 @@ namespace unirest_net_tests.http
         [Test]
         public static void HttpClientHelper_Should_Reqeust_With_Fields()
         {
-            Action request = () => HttpClientHelper.Request<string>(new HttpRequest(HttpMethod.Post, "http://www.google.com").field("test","value"));
+            Action request = () => HttpClientHelper.Request<string>(new HttpRequest(HttpMethod.Post, "http://www.google.com").WithField("test","value"));
             request.ShouldNotThrow();
         }
 
         [Test]
         public static void HttpClientHelper_Should_Reqeust_Async_With_Fields()
         {
-            Action request = () => HttpClientHelper.RequestAsync<string>(new HttpRequest(HttpMethod.Post, "http://www.google.com").field("test", "value"));
+            Action request = () => HttpClientHelper.RequestAsync<string>(new HttpRequest(HttpMethod.Post, "http://www.google.com").WithField("test", "value"));
             request.ShouldNotThrow();
         }
     }

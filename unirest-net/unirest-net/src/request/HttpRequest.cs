@@ -52,13 +52,13 @@ namespace unirest_net.request
 
         }
 
-        public HttpRequest header(string name, string value)
+        public HttpRequest WithHeader(string name, string value)
         {
             Headers.Add(name, value);
             return this;
         }
 
-        public HttpRequest headers(Dictionary<string, string> headers)
+        public HttpRequest WithHeaders(Dictionary<string, string> headers)
         {
             if (headers != null)
             {
@@ -71,7 +71,7 @@ namespace unirest_net.request
             return this;
         }
 
-        public HttpRequest field(string name, string value)
+        public HttpRequest WithField(string name, string value)
         {
             if (HttpMethod == HttpMethod.Get)
             {
@@ -89,7 +89,7 @@ namespace unirest_net.request
             return this;
         }
 
-        public HttpRequest field(string name, byte[] data)
+        public HttpRequest WithField(string name, byte[] data)
         {
             if (HttpMethod == HttpMethod.Get)
             {
@@ -111,7 +111,7 @@ namespace unirest_net.request
             return this;
         }
 
-        public HttpRequest field(Stream value)
+        public HttpRequest WithField(Stream value)
         {
             if (HttpMethod == HttpMethod.Get)
             {
@@ -128,7 +128,7 @@ namespace unirest_net.request
             return this;
         }
 
-        public HttpRequest fields(Dictionary<string, object> parameters)
+        public HttpRequest WithFields(Dictionary<string, object> parameters)
         {
             if (HttpMethod == HttpMethod.Get)
             {
@@ -151,7 +151,7 @@ namespace unirest_net.request
             return this;
         }
 
-        public HttpRequest body(string body)
+        public HttpRequest WithBody(string body)
         {
             if (HttpMethod == HttpMethod.Get)
             {
@@ -168,7 +168,7 @@ namespace unirest_net.request
             return this;
         }
 
-        public HttpRequest body<T>(T body)
+        public HttpRequest WithBody<T>(T body)
         {
             if (HttpMethod == HttpMethod.Get)
             {
@@ -185,32 +185,32 @@ namespace unirest_net.request
             return this;
         }
 
-        public HttpResponse<String> asString()
+        public HttpResponse<String> AsString()
         {
             return HttpClientHelper.Request<String>(this);
         }
 
-        public Task<HttpResponse<String>> asStringAsync()
+        public Task<HttpResponse<String>> AsStringAsync()
         {
             return HttpClientHelper.RequestAsync<String>(this);
         }
 
-        public HttpResponse<Stream> asBinary()
+        public HttpResponse<Stream> AsBinary()
         {
             return HttpClientHelper.Request<Stream>(this);
         }
 
-        public Task<HttpResponse<Stream>> asBinaryAsync()
+        public Task<HttpResponse<Stream>> AsBinaryAsync()
         {
             return HttpClientHelper.RequestAsync<Stream>(this);
         }
 
-        public HttpResponse<T> asJson<T>()
+        public HttpResponse<T> AsJson<T>()
         {
             return HttpClientHelper.Request<T>(this);
         }
 
-        public Task<HttpResponse<T>> asJsonAsync<T>()
+        public Task<HttpResponse<T>> AsJsonAsync<T>()
         {
             return HttpClientHelper.RequestAsync<T>(this);
         }

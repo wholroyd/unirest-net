@@ -124,11 +124,11 @@ namespace unicorn_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Get.header("User-Agent", "unirest-net/1.0");
-            Post.header("User-Agent", "unirest-net/1.0");
-            Delete.header("User-Agent", "unirest-net/1.0");
-            Patch.header("User-Agent", "unirest-net/1.0");
-            Put.header("User-Agent", "unirest-net/1.0");
+            Get.WithHeader("User-Agent", "unirest-net/1.0");
+            Post.WithHeader("User-Agent", "unirest-net/1.0");
+            Delete.WithHeader("User-Agent", "unirest-net/1.0");
+            Patch.WithHeader("User-Agent", "unirest-net/1.0");
+            Put.WithHeader("User-Agent", "unirest-net/1.0");
 
             Get.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
             Post.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
@@ -146,11 +146,11 @@ namespace unicorn_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Get.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Post.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Delete.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Patch.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Put.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Get.WithHeaders(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Post.WithHeaders(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Delete.WithHeaders(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Patch.WithHeaders(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Put.WithHeaders(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
 
             Get.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
             Post.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
@@ -168,11 +168,11 @@ namespace unicorn_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com");
             var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com");
 
-            Get.asString().Body.Should().NotBeBlank();
-            Post.asString().Body.Should().NotBeBlank();
-            Delete.asString().Body.Should().NotBeBlank();
-            Patch.asString().Body.Should().NotBeBlank();
-            Put.asString().Body.Should().NotBeBlank();
+            Get.AsString().Body.Should().NotBeBlank();
+            Post.AsString().Body.Should().NotBeBlank();
+            Delete.AsString().Body.Should().NotBeBlank();
+            Patch.AsString().Body.Should().NotBeBlank();
+            Put.AsString().Body.Should().NotBeBlank();
         }
 
         [Test]
@@ -184,11 +184,11 @@ namespace unicorn_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com");
             var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com");
 
-            Get.asBinary().Body.Should().NotBeNull();
-            Post.asBinary().Body.Should().NotBeNull();
-            Delete.asBinary().Body.Should().NotBeNull();
-            Patch.asBinary().Body.Should().NotBeNull();
-            Put.asBinary().Body.Should().NotBeNull();
+            Get.AsBinary().Body.Should().NotBeNull();
+            Post.AsBinary().Body.Should().NotBeNull();
+            Delete.AsBinary().Body.Should().NotBeNull();
+            Patch.AsBinary().Body.Should().NotBeNull();
+            Put.AsBinary().Body.Should().NotBeNull();
         }
 
         [Test]
@@ -200,21 +200,21 @@ namespace unicorn_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com");
             var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com");
 
-            Get.asJson<String>().Body.Should().NotBeBlank();
-            Post.asJson<String>().Body.Should().NotBeBlank();
-            Delete.asJson<String>().Body.Should().NotBeBlank();
-            Patch.asJson<String>().Body.Should().NotBeBlank();
-            Put.asJson<String>().Body.Should().NotBeBlank();
+            Get.AsJson<String>().Body.Should().NotBeBlank();
+            Post.AsJson<String>().Body.Should().NotBeBlank();
+            Delete.AsJson<String>().Body.Should().NotBeBlank();
+            Patch.AsJson<String>().Body.Should().NotBeBlank();
+            Put.AsJson<String>().Body.Should().NotBeBlank();
         }
 
         [Test]
         public static void HttpRequest_Should_Return_String_Async()
         {
-            var Get = new HttpRequest(HttpMethod.Get, "http://www.google.com").asStringAsync();
-            var Post = new HttpRequest(HttpMethod.Post, "http://www.google.com").asStringAsync();
-            var Delete = new HttpRequest(HttpMethod.Delete, "http://www.google.com").asStringAsync();
-            var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com").asStringAsync();
-            var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com").asStringAsync();
+            var Get = new HttpRequest(HttpMethod.Get, "http://www.google.com").AsStringAsync();
+            var Post = new HttpRequest(HttpMethod.Post, "http://www.google.com").AsStringAsync();
+            var Delete = new HttpRequest(HttpMethod.Delete, "http://www.google.com").AsStringAsync();
+            var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com").AsStringAsync();
+            var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com").AsStringAsync();
 
             Task.WaitAll(Get, Post, Delete, Patch, Put);
 
@@ -228,11 +228,11 @@ namespace unicorn_net_tests.request
         [Test]
         public static void HttpRequest_Should_Return_Stream_Async()
         {
-            var Get = new HttpRequest(HttpMethod.Get, "http://www.google.com").asBinaryAsync();
-            var Post = new HttpRequest(HttpMethod.Post, "http://www.google.com").asBinaryAsync();
-            var Delete = new HttpRequest(HttpMethod.Delete, "http://www.google.com").asBinaryAsync();
-            var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com").asBinaryAsync();
-            var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com").asBinaryAsync();
+            var Get = new HttpRequest(HttpMethod.Get, "http://www.google.com").AsBinaryAsync();
+            var Post = new HttpRequest(HttpMethod.Post, "http://www.google.com").AsBinaryAsync();
+            var Delete = new HttpRequest(HttpMethod.Delete, "http://www.google.com").AsBinaryAsync();
+            var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com").AsBinaryAsync();
+            var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com").AsBinaryAsync();
 
             Task.WaitAll(Get, Post, Delete, Patch, Put);
 
@@ -246,11 +246,11 @@ namespace unicorn_net_tests.request
         [Test]
         public static void HttpRequest_Should_Return_Parsed_JSON_Async()
         {
-            var Get = new HttpRequest(HttpMethod.Get, "http://www.google.com").asJsonAsync<String>();
-            var Post = new HttpRequest(HttpMethod.Post, "http://www.google.com").asJsonAsync<String>();
-            var Delete = new HttpRequest(HttpMethod.Delete, "http://www.google.com").asJsonAsync<String>();
-            var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com").asJsonAsync<String>();
-            var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com").asJsonAsync<String>();
+            var Get = new HttpRequest(HttpMethod.Get, "http://www.google.com").AsJsonAsync<String>();
+            var Post = new HttpRequest(HttpMethod.Post, "http://www.google.com").AsJsonAsync<String>();
+            var Delete = new HttpRequest(HttpMethod.Delete, "http://www.google.com").AsJsonAsync<String>();
+            var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://www.google.com").AsJsonAsync<String>();
+            var Put = new HttpRequest(HttpMethod.Put, "http://www.google.com").AsJsonAsync<String>();
 
             Task.WaitAll(Get, Post, Delete, Patch, Put);
 
@@ -353,10 +353,10 @@ namespace unicorn_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Post.header("User-Agent", "unirest-net/1.0");
-            Delete.header("User-Agent", "unirest-net/1.0");
-            Patch.header("User-Agent", "unirest-net/1.0");
-            Put.header("User-Agent", "unirest-net/1.0");
+            Post.WithHeader("User-Agent", "unirest-net/1.0");
+            Delete.WithHeader("User-Agent", "unirest-net/1.0");
+            Patch.WithHeader("User-Agent", "unirest-net/1.0");
+            Put.WithHeader("User-Agent", "unirest-net/1.0");
 
             Post.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
             Delete.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
@@ -372,10 +372,10 @@ namespace unicorn_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Post.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Delete.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Patch.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Put.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Post.WithHeaders(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Delete.WithHeaders(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Patch.WithHeaders(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Put.WithHeaders(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
 
             Post.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
             Delete.Headers.Should().Contain("User-Agent", "unirest-net/1.0");
@@ -391,10 +391,10 @@ namespace unicorn_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Post.field("key", "value");
-            Delete.field("key", "value");
-            Patch.field("key", "value");
-            Put.field("key", "value");
+            Post.WithField("key", "value");
+            Delete.WithField("key", "value");
+            Patch.WithField("key", "value");
+            Put.WithField("key", "value");
 
             Post.Body.Should().NotBeEmpty();
             Delete.Body.Should().NotBeEmpty();
@@ -412,10 +412,10 @@ namespace unicorn_net_tests.request
 
             var stream = new MemoryStream();
 
-            Post.field(stream);
-            Delete.field(stream);
-            Patch.field(stream);
-            Put.field(stream);
+            Post.WithField(stream);
+            Delete.WithField(stream);
+            Patch.WithField(stream);
+            Put.WithField(stream);
 
             Post.Body.Should().NotBeEmpty();
             Delete.Body.Should().NotBeEmpty();
@@ -438,10 +438,10 @@ namespace unicorn_net_tests.request
                     {"key3", new MemoryStream()}
                 };
 
-            Post.fields(dict);
-            Delete.fields(dict);
-            Patch.fields(dict);
-            Put.fields(dict);
+            Post.WithFields(dict);
+            Delete.WithFields(dict);
+            Patch.WithFields(dict);
+            Put.WithFields(dict);
 
             Post.Body.Should().NotBeEmpty();
             Delete.Body.Should().NotBeEmpty();
@@ -457,10 +457,10 @@ namespace unicorn_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Post.body("test");
-            Delete.body("test");
-            Patch.body("test");
-            Put.body("test");
+            Post.WithBody("test");
+            Delete.WithBody("test");
+            Patch.WithBody("test");
+            Put.WithBody("test");
 
             Post.Body.Should().NotBeEmpty();
             Delete.Body.Should().NotBeEmpty();
@@ -476,10 +476,10 @@ namespace unicorn_net_tests.request
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Post.body(new List<int> { 1, 2, 3 });
-            Delete.body(new List<int> { 1, 2, 3 });
-            Patch.body(new List<int> { 1, 2, 3 });
-            Put.body(new List<int> { 1, 2, 3 });
+            Post.WithBody(new List<int> { 1, 2, 3 });
+            Delete.WithBody(new List<int> { 1, 2, 3 });
+            Patch.WithBody(new List<int> { 1, 2, 3 });
+            Put.WithBody(new List<int> { 1, 2, 3 });
 
             Post.Body.Should().NotBeEmpty();
             Delete.Body.Should().NotBeEmpty();
@@ -491,10 +491,10 @@ namespace unicorn_net_tests.request
         public static void Http_Request_Shouldnt_Add_Fields_To_Get()
         {
             var Get = new HttpRequest(HttpMethod.Get, "http://localhost");
-            Action addStringField = () => Get.field("name", "value");
-            Action addKeyField = () => Get.field(new MemoryStream());
-            Action addStringFields = () => Get.fields(new Dictionary<string, object> {{"name", "value"}});
-            Action addKeyFields = () => Get.fields(new Dictionary<string, object> {{"key", new MemoryStream()}});
+            Action addStringField = () => Get.WithField("name", "value");
+            Action addKeyField = () => Get.WithField(new MemoryStream());
+            Action addStringFields = () => Get.WithFields(new Dictionary<string, object> {{"name", "value"}});
+            Action addKeyFields = () => Get.WithFields(new Dictionary<string, object> {{"key", new MemoryStream()}});
 
             addStringField.ShouldThrow<InvalidOperationException>();
             addKeyField.ShouldThrow<InvalidOperationException>();
@@ -506,8 +506,8 @@ namespace unicorn_net_tests.request
         public static void Http_Request_Shouldnt_Add_Body_To_Get()
         {
             var Get = new HttpRequest(HttpMethod.Get, "http://localhost");
-            Action addStringBody = () => Get.body("string");
-            Action addJSONBody = () => Get.body(new List<int> {1,2,3});
+            Action addStringBody = () => Get.WithBody("string");
+            Action addJSONBody = () => Get.WithBody(new List<int> {1,2,3});
 
             addStringBody.ShouldThrow<InvalidOperationException>();
             addJSONBody.ShouldThrow<InvalidOperationException>();
@@ -523,19 +523,19 @@ namespace unicorn_net_tests.request
 
             var stream = new MemoryStream();
 
-            Post.field(stream);
-            Delete.field(stream);
-            Patch.field(stream);
-            Put.field(stream);
+            Post.WithField(stream);
+            Delete.WithField(stream);
+            Patch.WithField(stream);
+            Put.WithField(stream);
 
-            Action addBodyPost = () => Post.body("test");
-            Action addBodyDelete = () => Delete.body("test");
-            Action addBodyPatch = () => Patch.body("test");
-            Action addBodyPut = () => Put.body("test");
-            Action addObjectBodyPost = () => Post.body(1);
-            Action addObjectBodyDelete = () => Delete.body(1);
-            Action addObjectBodyPatch = () => Patch.body(1);
-            Action addObjectBodyPut = () => Put.body(1);
+            Action addBodyPost = () => Post.WithBody("test");
+            Action addBodyDelete = () => Delete.WithBody("test");
+            Action addBodyPatch = () => Patch.WithBody("test");
+            Action addBodyPut = () => Put.WithBody("test");
+            Action addObjectBodyPost = () => Post.WithBody(1);
+            Action addObjectBodyDelete = () => Delete.WithBody(1);
+            Action addObjectBodyPatch = () => Patch.WithBody(1);
+            Action addObjectBodyPut = () => Put.WithBody(1);
 
             addBodyPost.ShouldThrow<InvalidOperationException>();
             addBodyDelete.ShouldThrow<InvalidOperationException>();
@@ -557,23 +557,23 @@ namespace unicorn_net_tests.request
 
             var stream = new MemoryStream();
 
-            Post.body("test");
-            Delete.body("test");
-            Patch.body("test");
-            Put.body("lalala");
+            Post.WithBody("test");
+            Delete.WithBody("test");
+            Patch.WithBody("test");
+            Put.WithBody("lalala");
 
-            Action addFieldPost = () => Post.field("key", "value");
-            Action addFieldDelete = () => Delete.field("key", "value");
-            Action addFieldPatch = () => Patch.field("key", "value");
-            Action addFieldPut = () => Put.field("key", "value");
-            Action addStreamFieldPost = () => Post.field(stream);
-            Action addStreamFieldDelete = () => Delete.field(stream);
-            Action addStreamFieldPatch = () => Patch.field(stream);
-            Action addStreamFieldPut = () => Put.field(stream);
-            Action addFieldsPost = () => Post.fields(new Dictionary<string, object> {{"test", "test"}});
-            Action addFieldsDelete = () => Delete.fields(new Dictionary<string, object> {{"test", "test"}});
-            Action addFieldsPatch = () => Patch.fields(new Dictionary<string, object> {{"test", "test"}});
-            Action addFieldsPut = () => Put.fields(new Dictionary<string, object> {{"test", "test"}});
+            Action addFieldPost = () => Post.WithField("key", "value");
+            Action addFieldDelete = () => Delete.WithField("key", "value");
+            Action addFieldPatch = () => Patch.WithField("key", "value");
+            Action addFieldPut = () => Put.WithField("key", "value");
+            Action addStreamFieldPost = () => Post.WithField(stream);
+            Action addStreamFieldDelete = () => Delete.WithField(stream);
+            Action addStreamFieldPatch = () => Patch.WithField(stream);
+            Action addStreamFieldPut = () => Put.WithField(stream);
+            Action addFieldsPost = () => Post.WithFields(new Dictionary<string, object> {{"test", "test"}});
+            Action addFieldsDelete = () => Delete.WithFields(new Dictionary<string, object> {{"test", "test"}});
+            Action addFieldsPatch = () => Patch.WithFields(new Dictionary<string, object> {{"test", "test"}});
+            Action addFieldsPut = () => Put.WithFields(new Dictionary<string, object> {{"test", "test"}});
 
             addFieldPost.ShouldThrow<InvalidOperationException>();
             addFieldDelete.ShouldThrow<InvalidOperationException>();
