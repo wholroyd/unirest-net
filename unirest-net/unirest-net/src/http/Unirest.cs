@@ -7,9 +7,9 @@ namespace unirest_net.http
     public class Unirest
     {
         // Should add overload that takes URL object
-        public static HttpRequest get(string url)
+        public static HttpRequestMessage get(string url)
         {
-            return new HttpRequest(HttpMethod.Get, url);
+            return new HttpRequestMessage(HttpMethod.Get, url);
         }
 
         public static HttpRequest post(string url)
