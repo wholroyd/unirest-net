@@ -6,7 +6,7 @@
 
     using Xunit;
 
-    class UnirestTest
+    public class UnirestTest
     {
         [Fact]
         public static void Unirest_Should_Return_Correct_Verb()

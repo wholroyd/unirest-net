@@ -10,7 +10,7 @@
 
     using Xunit;
 
-    class HttpRequestTests
+    public class HttpRequestTests
     {
         [Fact]
         public static void HttpRequest_Should_Construct()
@@ -117,11 +117,11 @@
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Get.header("User-Agent", "unirest-net/1.0");
-            Post.header("User-Agent", "unirest-net/1.0");
-            Delete.header("User-Agent", "unirest-net/1.0");
-            Patch.header("User-Agent", "unirest-net/1.0");
-            Put.header("User-Agent", "unirest-net/1.0");
+            Get.header("User-Agent", "unirest-netcore/1.0");
+            Post.header("User-Agent", "unirest-netcore/1.0");
+            Delete.header("User-Agent", "unirest-netcore/1.0");
+            Patch.header("User-Agent", "unirest-netcore/1.0");
+            Put.header("User-Agent", "unirest-netcore/1.0");
         }
 
         [Fact]
@@ -133,11 +133,11 @@
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Get.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Post.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Delete.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Patch.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Put.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Get.headers(new Dictionary<string, string> { { "User-Agent", "unirest-netcore/1.0" } });
+            Post.headers(new Dictionary<string, string> { { "User-Agent", "unirest-netcore/1.0" } });
+            Delete.headers(new Dictionary<string, string> { { "User-Agent", "unirest-netcore/1.0" } });
+            Patch.headers(new Dictionary<string, string> { { "User-Agent", "unirest-netcore/1.0" } });
+            Put.headers(new Dictionary<string, string> { { "User-Agent", "unirest-netcore/1.0" } });
 
             Assert.Contains("unirest-netcore/1.0", Get.Headers.Values);
             Assert.Contains("unirest-netcore/1.0", Post.Headers.Values);
@@ -340,10 +340,10 @@
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Post.header("User-Agent", "unirest-net/1.0");
-            Delete.header("User-Agent", "unirest-net/1.0");
-            Patch.header("User-Agent", "unirest-net/1.0");
-            Put.header("User-Agent", "unirest-net/1.0");
+            Post.header("User-Agent", "unirest-netcore/1.0");
+            Delete.header("User-Agent", "unirest-netcore/1.0");
+            Patch.header("User-Agent", "unirest-netcore/1.0");
+            Put.header("User-Agent", "unirest-netcore/1.0");
 
             Assert.Contains("unirest-netcore/1.0", Post.Headers.Values);
             Assert.Contains("unirest-netcore/1.0", Delete.Headers.Values);
@@ -359,10 +359,10 @@
             var Patch = new HttpRequest(new HttpMethod("PATCH"), "http://localhost");
             var Put = new HttpRequest(HttpMethod.Put, "http://localhost");
 
-            Post.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Delete.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Patch.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
-            Put.headers(new Dictionary<string, string> { { "User-Agent", "unirest-net/1.0" } });
+            Post.headers(new Dictionary<string, string> { { "User-Agent", "unirest-netcore/1.0" } });
+            Delete.headers(new Dictionary<string, string> { { "User-Agent", "unirest-netcore/1.0" } });
+            Patch.headers(new Dictionary<string, string> { { "User-Agent", "unirest-netcore/1.0" } });
+            Put.headers(new Dictionary<string, string> { { "User-Agent", "unirest-netcore/1.0" } });
 
             Assert.Contains("unirest-netcore/1.0", Post.Headers.Values);
             Assert.Contains("unirest-netcore/1.0", Delete.Headers.Values);

@@ -6,7 +6,7 @@ using Xunit;
 
 namespace unirest_netcore_tests.http
 {
-    class HttpResponseTests
+    public class HttpResponseTests
     {
         [Fact]
         public static void HttpResponse_Should_Construct()

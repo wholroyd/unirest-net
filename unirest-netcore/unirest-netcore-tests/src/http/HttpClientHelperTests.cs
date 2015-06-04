@@ -7,7 +7,7 @@
 
     using Xunit;
 
-    class HttpClientHelperTests
+    public class HttpClientHelperTests
     {
         [Fact]
         public static void HttpClientHelper_Should_Reqeust()

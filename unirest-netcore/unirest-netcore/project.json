@@ -9,7 +9,8 @@
     "dependencies": {
         "Newtonsoft.Json": "7.0.1-beta3",
         "System.Net.Http": "4.0.0-beta-22816",
-        "System.Reflection.TypeExtensions": "4.0.0-beta-22816"
+        "System.Reflection.TypeExtensions": "4.0.0-beta-22816",
+        "dnx-coreclr-win-x64": "1.0.0-beta4"
     },
 
     "frameworks": {
