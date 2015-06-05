@@ -2,7 +2,7 @@
 
 Unirest is a set of lightweight HTTP libraries available in multiple languages.
 
-This is a port of the Java library to .NET.
+This is a port of the official .NET library to .NET Core, which will allow it to work in ASP.NET 5 (DNX) environment.
 
 ## Installing
 Is easy as pie. Kidding. It's as easy as downloading from [NuGet](https://nuget.org/packages/Unirest-Net/1.0.0-beta).
@@ -18,7 +18,7 @@ HttpResponse<MyClass> jsonResponse = Unirest.post("http://httpbin.org/post")
   .asJson<MyClass>();
 ```
 
-Requests are made when `as[Type]()` is invoked, possible types include `Json`, `Binary`, `String`. If the request supports this, a body  can be passed along with `.body(String)` or `body<T>(T)` to serialize an arbitary object to JSON. If you already have a dictionary of parameters or do not wish to use seperate field methods for each one there is a `.fields(Dictionary<string, object> parameters)` method that will serialize each key - value to form parameters on your request.
+Requests are made when `as[Type]()` is invoked, possible types include `Json`, `Binary`, `String`. If the request supports this, a body  can be passed along with `.body(String)` or `body<T>(T)` to serialize an arbitrary object to JSON. If you already have a dictionary of parameters or do not wish to use separate field methods for each one there is a `.fields(Dictionary<string, object> parameters)` method that will serialize each key - value to form parameters on your request.
 
 `.headers(Dictionary<string, string> headers)` is also supported in replacement of multiple header methods.
 
@@ -68,7 +68,7 @@ HttpRequest request = Unirest.delete(String url);
 
 # Response
 
-Upon recieving a response Unirest returns the result in the form of an Object, this object should always have the same keys for each language regarding to the response details.
+Upon receiving a response Unirest returns the result in the form of an Object, this object should always have the same keys for each language regarding to the response details.
 
 - `.Code` - HTTP Response Status Code (Example 200)
 - `.Headers` - HTTP Response Headers
