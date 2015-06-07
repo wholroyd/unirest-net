@@ -1,11 +1,11 @@
-# Unirest for .Net
+# Unirest for .NET Core
 
 Unirest is a set of lightweight HTTP libraries available in multiple languages.
 
-This is a port of the official .NET library to .NET Core, which will allow it to work in ASP.NET 5 (DNX) environment.
+This is a port of the official .NET library to .NET Core, which will allow it to work in ASP.NET 5 (DNX) environment and eventually the full .NET stack for Windows and Mono.
 
 ## Installing
-Is easy as pie. Kidding. It's as easy as downloading from [NuGet](https://nuget.org/packages/Unirest-Net/1.0.0-beta).
+Is easy as pie. Kidding. It's as easy as downloading from [NuGet](https://nuget.org/packages/Unirest-Netcore/1.0.0-beta) (This link is bad, working on it).
 
 ## Creating Request
 So you're probably wondering how using Unirest makes creating requests in .NET easier, here is a basic POST request that will explain everything:
